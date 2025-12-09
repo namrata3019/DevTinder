@@ -1,0 +1,7 @@
+-create a repo
+-initialize the repo
+-node_module,package json,package-lock.json
+-install express
+-create a server
+-listen to port 7777
+-make request handlers
