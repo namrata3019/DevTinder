@@ -5,3 +5,19 @@
 -create a server
 -listen to port 7777
 -make request handlers
+
+-play with routes and route extensions /hello,/hello/2,/xyz
+-order of route matter a lt
+-write logic to handle get post patch delete api call and test on postman
+-explore routing and use of ? * () + and regex
+-reading query param in routes
+-readind the dynamuc route
+
+-multiple route gandlers
+-next()
+-next function and erros along with res.send()
+-app.use("/route",rh,[rh2,rh3],rh4,rh5)
+-what is middleware
+-how express basically handles request behind the scenes
+-app.use vs app.all
+-write dummy auth middleware for user, admin, login
