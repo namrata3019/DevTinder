@@ -1,26 +1,28 @@
 const express = require('express');
 
 const app = express();
-const {adminAuthorization,userAuthorization}= require('./middlewares/auth');
+     //good way is to use try catch block in each request handler
 
-app.use("/admin",adminAuthorization);
-app.post("/user/login",(req,res)=>{
-    res.send("User Login Successful");
+app.get("/data", (req, res) => {
+    try {
+        //logic to fetch data
+        throw new Error("xyz");
+        res.send("Here is your data");
+        
+    } 
+    catch (error) {
+        res.status(500).send("Something went wrong!");
+    }
 });
-
-
-
-app.get("/admin/getAllData", (req, res) => {
-    
-    res.status(200).send("Admin Data");
-});
-
-app.get("/admin/deleteUser",(req,res)=>{
-    res.send("User Deleted");
-});
-app.get("/user/getProfile",userAuthorization,(req,res)=>{
-    res.send("User Profile Data");
-});
+//always use a global error handling middleware at the end of all routes
+app.use("/", (err,req,res,next) => {
+    if (err) {
+        //log the error
+        console.error(err);
+        res.status(500).send("Something went wrong!");
+    }
+})
+   
 app.listen(3000,()=>{
     console.log('Server is running on port 3000');
 });

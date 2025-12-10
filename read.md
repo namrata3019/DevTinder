@@ -21,3 +21,4 @@
 -how express basically handles request behind the scenes
 -app.use vs app.all
 -write dummy auth middleware for user, admin, login
+-error handling using wildcard "/" and try catch block
